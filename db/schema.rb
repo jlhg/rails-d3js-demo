@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223124836) do
+ActiveRecord::Schema.define(version: 20160223135613) do
 
   create_table "bioassays", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "bioassays", ["name"], name: "index_bioassays_on_name", unique: true
 
   create_table "bioassays_measured_entities", id: false, force: :cascade do |t|
     t.integer "bioassay_id"
@@ -61,22 +63,30 @@ ActiveRecord::Schema.define(version: 20160223124836) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "measured_entities", ["name"], name: "index_measured_entities_on_name", unique: true
+
   create_table "model_systems", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "model_systems", ["name"], name: "index_model_systems_on_name", unique: true
+
   create_table "perturbagens", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "perturbagens", ["name"], name: "index_perturbagens_on_name", unique: true
+
   create_table "perturbations", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "perturbations", ["name"], name: "index_perturbations_on_name", unique: true
 
 end
