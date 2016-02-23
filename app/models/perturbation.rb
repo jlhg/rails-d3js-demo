@@ -1,4 +1,5 @@
 class Perturbation < ActiveRecord::Base
   validates_uniqueness_of :name
-  has_and_belongs_to_many :bioassays
+  has_many :bioassay_perturbation_count
+  has_many :bioassays, though: :bioassay_perturbation_count
 end

@@ -1,4 +1,5 @@
 class MeasuredEntity < ActiveRecord::Base
   validates_uniqueness_of :name
-  has_and_belongs_to_many :bioassays
+  has_many :bioassay_measure_entity_count
+  has_many :bioassays, through: :bioassay_measure_entity_count
 end

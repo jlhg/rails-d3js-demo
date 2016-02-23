@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223135613) do
+ActiveRecord::Schema.define(version: 20160223153322) do
+
+  create_table "bioassay_measure_entity_counts", force: :cascade do |t|
+    t.integer  "bioassay_id"
+    t.integer  "measured_entity_id"
+    t.integer  "count"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "bioassay_measure_entity_counts", ["bioassay_id"], name: "index_bioassay_measure_entity_counts_on_bioassay_id"
+  add_index "bioassay_measure_entity_counts", ["measured_entity_id"], name: "index_bioassay_measure_entity_counts_on_measured_entity_id"
+
+  create_table "bioassay_model_system_counts", force: :cascade do |t|
+    t.integer  "bioassay_id"
+    t.integer  "model_system_id"
+    t.integer  "count"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "bioassay_model_system_counts", ["bioassay_id"], name: "index_bioassay_model_system_counts_on_bioassay_id"
+  add_index "bioassay_model_system_counts", ["model_system_id"], name: "index_bioassay_model_system_counts_on_model_system_id"
+
+  create_table "bioassay_perturbagen_counts", force: :cascade do |t|
+    t.integer  "bioassay_id"
+    t.integer  "perturbagen_id"
+    t.integer  "count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "bioassay_perturbagen_counts", ["bioassay_id"], name: "index_bioassay_perturbagen_counts_on_bioassay_id"
+  add_index "bioassay_perturbagen_counts", ["perturbagen_id"], name: "index_bioassay_perturbagen_counts_on_perturbagen_id"
+
+  create_table "bioassay_perturbation_counts", force: :cascade do |t|
+    t.integer  "bioassay_id"
+    t.integer  "perturbation_id"
+    t.integer  "count"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "bioassay_perturbation_counts", ["bioassay_id"], name: "index_bioassay_perturbation_counts_on_bioassay_id"
+  add_index "bioassay_perturbation_counts", ["perturbation_id"], name: "index_bioassay_perturbation_counts_on_perturbation_id"
 
   create_table "bioassays", force: :cascade do |t|
     t.string   "name"
@@ -20,42 +64,6 @@ ActiveRecord::Schema.define(version: 20160223135613) do
   end
 
   add_index "bioassays", ["name"], name: "index_bioassays_on_name", unique: true
-
-  create_table "bioassays_measured_entities", id: false, force: :cascade do |t|
-    t.integer "bioassay_id"
-    t.integer "measured_entity_id"
-    t.integer "count"
-  end
-
-  add_index "bioassays_measured_entities", ["bioassay_id"], name: "index_bioassays_measured_entities_on_bioassay_id"
-  add_index "bioassays_measured_entities", ["measured_entity_id"], name: "index_bioassays_measured_entities_on_measured_entity_id"
-
-  create_table "bioassays_model_systems", id: false, force: :cascade do |t|
-    t.integer "bioassay_id"
-    t.integer "model_system_id"
-    t.integer "count"
-  end
-
-  add_index "bioassays_model_systems", ["bioassay_id"], name: "index_bioassays_model_systems_on_bioassay_id"
-  add_index "bioassays_model_systems", ["model_system_id"], name: "index_bioassays_model_systems_on_model_system_id"
-
-  create_table "bioassays_perturbagens", id: false, force: :cascade do |t|
-    t.integer "bioassay_id"
-    t.integer "perturbagen_id"
-    t.integer "count"
-  end
-
-  add_index "bioassays_perturbagens", ["bioassay_id"], name: "index_bioassays_perturbagens_on_bioassay_id"
-  add_index "bioassays_perturbagens", ["perturbagen_id"], name: "index_bioassays_perturbagens_on_perturbagen_id"
-
-  create_table "bioassays_perturbations", id: false, force: :cascade do |t|
-    t.integer "bioassay_id"
-    t.integer "perturbation_id"
-    t.integer "count"
-  end
-
-  add_index "bioassays_perturbations", ["bioassay_id"], name: "index_bioassays_perturbations_on_bioassay_id"
-  add_index "bioassays_perturbations", ["perturbation_id"], name: "index_bioassays_perturbations_on_perturbation_id"
 
   create_table "measured_entities", force: :cascade do |t|
     t.string   "name"
