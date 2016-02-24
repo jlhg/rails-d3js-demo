@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160223153322) do
 
-  create_table "bioassay_measure_entity_counts", force: :cascade do |t|
+  create_table "bioassay_measured_entity_counts", force: :cascade do |t|
     t.integer  "bioassay_id"
     t.integer  "measured_entity_id"
     t.integer  "count"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20160223153322) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "bioassay_measure_entity_counts", ["bioassay_id"], name: "index_bioassay_measure_entity_counts_on_bioassay_id"
-  add_index "bioassay_measure_entity_counts", ["measured_entity_id"], name: "index_bioassay_measure_entity_counts_on_measured_entity_id"
+  add_index "bioassay_measured_entity_counts", ["bioassay_id"], name: "index_bioassay_measured_entity_counts_on_bioassay_id"
+  add_index "bioassay_measured_entity_counts", ["measured_entity_id"], name: "index_bioassay_measured_entity_counts_on_measured_entity_id"
 
   create_table "bioassay_model_system_counts", force: :cascade do |t|
     t.integer  "bioassay_id"

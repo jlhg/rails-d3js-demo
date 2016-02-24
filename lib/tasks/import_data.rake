@@ -20,9 +20,9 @@ namespace :import_data do
 
       d['measuredEntity'].each do |name, count|
         measured_entity = MeasuredEntity.find_or_create_by name: name
-        BioassayMeasureEntityCount.find_or_create_by bioassay: bioassay,
-                                                     measured_entity: measured_entity,
-                                                     count: count
+        BioassayMeasuredEntityCount.find_or_create_by bioassay: bioassay,
+                                                      measured_entity: measured_entity,
+                                                      count: count
       end
 
       d['modelSystems'].each do |name, count|
