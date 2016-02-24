@@ -36,4 +36,4 @@ Database schema: docs/db-schema.png
 ### Credits
 
 - The data used in this project is from [http://life.ccs.miami.edu/life/statistics](http://life.ccs.miami.edu/life/statistics).
-- The code for bar chart is modified based on [http://bl.ocks.org/mbostock/3885304](http://bl.ocks.org/mbostock/3885304)
+- The code for bar chart is modified based on [http://bl.ocks.org/mbostock/3885304](http://bl.ocks.org/mbostock/3885304).
